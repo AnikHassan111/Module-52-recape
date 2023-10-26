@@ -6,12 +6,13 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAChE8KETT6O9NtfzKYcnzEnsZ1b9zFTsk",
-  authDomain: "the-drogon-news-module-52.firebaseapp.com",
-  projectId: "the-drogon-news-module-52",
-  storageBucket: "the-drogon-news-module-52.appspot.com",
-  messagingSenderId: "284262464597",
-  appId: "1:284262464597:web:8f394dd9d07e4d699968dc"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
+  
 };
 
 // Initialize Firebase

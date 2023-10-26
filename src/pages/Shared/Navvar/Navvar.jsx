@@ -1,13 +1,27 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import profileImg from '../../../assets/user.png'
+import { useContext } from 'react';
+import { ContextApi } from '../../../AuthProvider/AuthProvider';
 
 
 const Navvar = () => {
+
+    const { user,logOut } = useContext(ContextApi)
+
+    const handleLogout = (e) =>{
+        e.preventDefault()
+        logOut()
+        .then()
+        .catch()
+    }
+
 
     let navLink = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/about'}>About</NavLink></li>
         <li><NavLink to={'/career'}>Career</NavLink></li>
+        <li><NavLink to={'/login'}>Login</NavLink></li>
+        <li><NavLink to={'/register'}>Register</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 my-3">
@@ -36,7 +50,13 @@ const Navvar = () => {
                         <img src={profileImg} />
                     </div>
                 </label>
-                <a className="btn btn-neutral ml-2">Login</a>
+                {
+                    user ?
+
+                        <Link onClick={handleLogout}  className="btn btn-neutral ml-2">Log out</Link>
+                        :
+                        <Link to={'/login'} className="btn btn-neutral ml-2">Login</Link>
+                }
             </div>
         </div>
     );
